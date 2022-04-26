@@ -1,0 +1,53 @@
+<div class="container bg-secondary rounded p-2">
+    <h4 class="text-white mt-2">{{ titulo }}</h4>
+    <form [formGroup]="formPersona" (submit)="agregarPersona(formPersona.value)" class="row">
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="nombre" class="form-control" placeholder="Nombre" type="text" >
+            <div *ngIf="formPersona.get('nombre')?.errors && formPersona.get('nombre')?.touched">
+                <p class="text-danger mx-2" *ngIf="formPersona.get('nombre')?.hasError('required')">campo requirido</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="apellido" class="form-control" placeholder="Apellido" type="text" >
+            <div *ngIf="formPersona.get('apellido')?.errors && formPersona.get('apellido')?.touched">
+                <p class="text-danger mx-2" *ngIf="formPersona.get('apellido')?.hasError('required')">campo requirido</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="cedula" class="form-control" placeholder="Cédula" type="text" >
+            <div *ngIf="formPersona.get('cedula')?.errors && formPersona.get('cedula')?.touched" class="text-danger mx-2">
+                <p *ngIf="formPersona.get('cedula')?.hasError('required')">campo requirido</p>
+                <p *ngIf="formPersona.get('cedula')?.hasError('minlength')">mínimo 10 caracteres</p>
+                <p *ngIf="formPersona.get('cedula')?.hasError('maxlength')">máximio 10 caracteres</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="telefono" class="form-control" placeholder="Teléfono" type="text" >
+            <div *ngIf="formPersona.get('telefono')?.errors && formPersona.get('telefono')?.touched" class="text-danger mx-2">
+                <p *ngIf="formPersona.get('telefono')?.hasError('required')">campo requirido</p>
+                <p *ngIf="formPersona.get('telefono')?.hasError('minlength')">mínimo 10 caracteres</p>
+                <p *ngIf="formPersona.get('telefono')?.hasError('maxlength')">máximio 10 caracteres</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="direccion" class="form-control" placeholder="Dirección" type="text" >
+            <div *ngIf="formPersona.get('direccion')?.errors && formPersona.get('direccion')?.touched" class="text-danger mx-2">
+                <p *ngIf="formPersona.get('direccion')?.hasError('required')">campo requirido</p>
+                <p *ngIf="formPersona.get('direccion')?.hasError('minlength')">mínimo 10 caracteres</p>
+                <p *ngIf="formPersona.get('direccion')?.hasError('maxlength')">máximio 10 caracteres</p>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2 ">
+            <input formControlName="correo" class="form-control" placeholder="Correo@gmail.com" type="text" >
+            <div *ngIf="formPersona.get('correo')?.errors && formPersona.get('correo')?.touched" class="text-danger mx-2">
+                <p *ngIf="formPersona.get('correo')?.hasError('required')">campo requirido</p>
+                <p *ngIf="formPersona.get('correo')?.hasError('email')">no es un email</p>
+
+            </div>
+        </div>
+        
+        <div class="col-md-6 mt-2 ">
+            <button type="submit" [disabled]="formPersona.invalid"  class="btn btn-info">Registrar</button>
+        </div>
+    </form>
+</div>

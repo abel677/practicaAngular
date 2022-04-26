@@ -1,0 +1,36 @@
+<div class="container  bg-secondary rounded mt-2 p-2 ">
+    <h4 class="text-white mt-2">{{ titulo }}</h4>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-secondary table-striped  table-hover border border-info ">
+            <thead>
+                <tr>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>cedula</th>
+                    <th>telefono</th>
+                    <th>direccion</th>
+                    <th>email</th>
+                    <th>accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let elementosPersonas of listaPacientes; let i=index">
+                    <td>{{elementosPersonas.nombre}}</td>
+                    <td>{{elementosPersonas.apellido}}</td>
+                    <td>{{elementosPersonas.cedula}}</td>
+                    <td>{{elementosPersonas.telefono}}</td>
+                    <td>{{elementosPersonas.direccion}}</td>
+                    <td> {{elementosPersonas.correo}}</td>
+                    <td>
+                        <a class="cursor-p rounded p-1 bg-primary text-white" (click)="editarPaciente(i,elementosPersonas)">editar</a>
+                        <a class="cursor-p rounded p-1 bg-danger mx-1 text-white">eliminar</a>
+                    </td>
+                </tr>
+                   
+            </tbody>
+        </table>
+    </div>
+   
+</div>
+<!--  -->
+
